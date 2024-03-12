@@ -1,8 +1,10 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "target": "ES6"
+    },
+    "include": ["src/**/*.js"],
+    "exclude": ["node_modules", "dist"]
 }
