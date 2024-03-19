@@ -1,12 +1,14 @@
 <script setup>
-import CharactersVue from "./components/Characters.vue"
+import Characters from "./components/Characters.vue"
 import { useWordStore } from "./stores/WordStore.js"
 const wordStore = useWordStore()
 import { getWord } from "./api/getWordFromApi";
+import HangmanProgress from "./components/HangmanProgress.vue";
 getWord()
 </script>
 
 <template>
-  <CharactersVue></CharactersVue>
+  <HangmanProgress></HangmanProgress>
+  <Characters></Characters>
   {{ wordStore.getWord }}
 </template>
