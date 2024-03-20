@@ -13,6 +13,10 @@ export const useWordStore = defineStore("word", () => {
     word.value = newValue.toUpperCase()
     initArrayOfUserWord(word.value.length)
   };
+  const getProgressWord = computed(()=>{
+    let formatedWord = userWord.value.join("")
+    return formatedWord
+  })
   const getWord = computed(() => word.value);
   function setUserWord(letter){
     for(let i=0; i<=word.value.length;i++){
@@ -22,10 +26,10 @@ export const useWordStore = defineStore("word", () => {
     }
   }
   return {
-    word,
-    changeValue,
     getWord,
     userWord,
-    setUserWord
+    getProgressWord,
+    changeValue,
+    setUserWord,
   };
 });

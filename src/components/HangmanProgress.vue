@@ -1,16 +1,15 @@
 <template>
     <div>
+        <p>{{ wordStore.getProgressWord }}</p>
     </div>
 </template>
 
 <script setup>
 import { useWordStore } from "../stores/WordStore.js"
-import {ref, watchEffect} from "vue"
 const wordStore = useWordStore()
-
 </script>
 <style scoped>
-span{
-    padding: 3px;
+p {
+    letter-spacing: 6px;
 }
 </style>
