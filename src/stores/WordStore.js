@@ -3,19 +3,29 @@ import { ref, computed, watch } from "vue";
 
 export const useWordStore = defineStore("word", () => {
   const word = ref("");
-  const wordLength = ref()
+  const userWord = ref([])
+  function initArrayOfUserWord(length){
+    for (let i = 0; i < length; i++) {
+      userWord.value[i]="_"
+    }
+  }
   const changeValue = (newValue) => {
-    word.value = newValue;
+    word.value = newValue.toUpperCase()
+    initArrayOfUserWord(word.value.length)
   };
-  watch(word, (newValue)=>{
-    wordLength.value = newValue.length
-  })
   const getWord = computed(() => word.value);
-  const getWordLength = computed(() => wordLength.value);
+  function setUserWord(letter){
+    for(let i=0; i<=word.value.length;i++){
+    if(word.value[i]===letter){
+      userWord.value[i]=letter
+    };
+    }
+  }
   return {
     word,
     changeValue,
     getWord,
-    getWordLength,
+    userWord,
+    setUserWord
   };
 });
