@@ -11,4 +11,5 @@ getWord()
   <HangmanProgress></HangmanProgress>
   <Characters></Characters>
   {{ wordStore.getWord }}
+  <div><img src="./assets/game-over.png" alt=""></div>
 </template>
