@@ -5,13 +5,17 @@ const wordStore = useWordStore()
 import { getWord } from "./api/getWordFromApi";
 import HangmanProgress from "./components/HangmanProgress.vue";
 import Image from "./components/Image.vue"
+import GameEnd from "./components/GameEnd.vue";
 getWord()
 </script>
 
 <template>
-  <HangmanProgress/>
-  <Characters/>
+  <HangmanProgress />
+  <Characters />
   {{ wordStore.getWord }}
   {{ wordStore.getLifes }}
-  <Image/>
+  <Image />
+  <div v-if="wordStore.getGameStatus.isEnd">
+    <GameEnd />
+  </div>
 </template>
